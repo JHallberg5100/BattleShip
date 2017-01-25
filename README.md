@@ -1,13 +1,13 @@
 # BattleShip
 Warfare on the High Seas
 
-#Team 
+# Team 
 Danny
 Bob
 Michael
 Jim
 
-#Team Norms
+# Team Norms
 Respect each other</br>
 Ask questions when stuck</br>
 EVERYONE deserves a chance to drive</br>
@@ -16,3 +16,7 @@ Impromptu singing is encouraged</br>
 What about Bob?!?</br>
 NEVER push to master</br>
 Peer-reviewed pull requests always</br>
+
+# Description and Purpose 
+A multi user BattleShip game to serve as validation to ones dominance on the high seas 
+
