@@ -1,24 +1,37 @@
-# README
+# BattleShip
+Warfare on the High Seas
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Team 
+Danny
+Bob
+Michael
+Jim
 
-Things you may want to cover:
+# Team Norms
+* Respect each other</br>
+* Ask questions when stuck</br>
+* EVERYONE deserves a chance to drive</br>
+* Standups - AM, post-lunch, PM</br>
+* Impromptu singing is encouraged</br> 
+* What about Bob?!?</br>
+* NEVER push to master</br>
+* Peer-reviewed pull requests always</br>
 
-* Ruby version
+# Description and Purpose 
+A multi user BattleShip game to serve as validation to ones dominance on the high seas 
 
-* System dependencies
+# User Stories 
 
-* Configuration
+* As a user I would like register/login/logout
 
-* Database creation
+* As a user I would like to create a new game
 
-* Database initialization
+* As a user I would like to join a newly created game
 
-* How to run the test suite
+* As a user I would like to see game stats (after game)
 
-* Services (job queues, cache servers, search engines, etc.)
+* As a user I would like to see my overall stats (my profile)
 
-* Deployment instructions
+* As a user I would like to fire shots and be alerted whether I missed or hit
 
-* ...
+* As a user I would like to visually see my hits and misses on opponents board
