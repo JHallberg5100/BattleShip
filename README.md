@@ -9,10 +9,10 @@ Jim
 
 #Team Norms
 Respect each other</br>
-Ask questions when stuck
-EVERYONE deserves a chance to drive
-Standups - AM, post-lunch, PM
-Impromptu singing is encouraged 
-What about Bob?!?
-NEVER push to master 
-Peer-reviewed pull requests always
+Ask questions when stuck</br>
+EVERYONE deserves a chance to drive</br>
+Standups - AM, post-lunch, PM</br>
+Impromptu singing is encouraged</br> 
+What about Bob?!?</br>
+NEVER push to master</br>
+Peer-reviewed pull requests always</br>
