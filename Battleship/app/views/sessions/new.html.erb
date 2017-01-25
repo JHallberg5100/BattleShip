@@ -1,0 +1,11 @@
+<h1> Login </h1>
+<p><%=session[:user_id]%></p>
+<p><%= flash.alert%></p>
+<%= form_for :session, url: sessions_path do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+  <%= f.label :password %>
+  <%= f.text_field :password %><br>
+  <%= f.submit %>
+<% end %>
+
