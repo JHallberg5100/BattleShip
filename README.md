@@ -1,4 +1,8 @@
 # BattleShip
 Warfare on the High Seas
 
-dskjfsldjflsdjl
+#Team 
+Danny
+Bob
+Michael
+Jim
