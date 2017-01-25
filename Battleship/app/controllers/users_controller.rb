@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @games = @user.hosted_games + @user.joined_games
   end
 
   private
