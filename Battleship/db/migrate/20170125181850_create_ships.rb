@@ -4,7 +4,7 @@ class CreateShips < ActiveRecord::Migration[5.0]
       t.string :type_name
       t.integer :size
       t.string :position
-      t.boolean :destroyed
+      t.boolean :sunk
       t.integer :board_id
 
       t.timestamps
