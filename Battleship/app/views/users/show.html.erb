@@ -1,0 +1,9 @@
+<h1> Welcome <%= @user.username.capitalize %></h1>
+<ul>
+<li> You're currently rank <%= user_ranking(@user) %> </li>
+<li> You've played <%= @user.games_played %> games </li>
+<li> You've hosted <%= @user.hosted_games.length %> games </li>
+<li> You've joined <%= @user.joined_games.length %> games </li>
+<li> You've won <%= @user.wins %> games </li>
+<li> You've lost <%= @user.games_lost %> games, ya dingus</li>
+</ul>
