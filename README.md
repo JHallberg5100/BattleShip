@@ -8,7 +8,7 @@ Michael
 Jim
 
 #Team Norms
-Respect each other,
+Respect each other</br>
 Ask questions when stuck
 EVERYONE deserves a chance to drive
 Standups - AM, post-lunch, PM
