@@ -7,7 +7,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <nav>
+    <%= link_to "Home", games_path %>
+    <% if logged_in? %>
+      <%= link_to "#{current_user.username.capitalize}", current_user %>
+      <%= link_to "Logout", "/sessions/#{session[:user_id]}", method: :delete %>
+    <% else %>
+      <%= link_to "Register", new_user_path %>
+      <%= link_to "Login", new_session_path %>
+    <% end %>
+  </nav>
   <body>
 
     <%= yield %>
