@@ -6,11 +6,14 @@ module UsersHelper
   def user_rankings
     @users = User.all
     @users.sort {|a,b| b.wins <=> a.wins}
-    @users
   end
 
   def user_ranking(user_object)
     users = user_rankings
     users.index(user_object) + 1
+  end
+
+  def total_users
+    User.all.length
   end
 end
