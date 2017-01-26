@@ -2,7 +2,7 @@
   background-color: #CCE9F8;
   height: 40px;
   width: 40px;
-  border: black solid 2px;
+  border: #0089EB solid 2px;
 }
 
 #grid {
@@ -13,4 +13,10 @@
 
 table {
   border-collapse: collapse;
+  color: navy;
+}
+
+a {
+  color: navy;
+  text-decoration: none;
 }
