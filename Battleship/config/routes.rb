@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :games
   resources :users, only: [:new, :create, :show, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :ships
+
+  resources :boards do
+    resources :ships
+  end
 
 end

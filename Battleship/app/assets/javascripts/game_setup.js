@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   var boardFunctionality = function(){
+    var board_id = $("#board-id").html()
     var direction = "horizontal"
     $("#toggle-button").on("click", function(){
       if (direction === "horizontal"){
@@ -11,12 +12,12 @@ $(document).ready(function() {
       }
     })
 
-    $('a').on("click", function(){
+    $('.ship').on("click", function(){
       event.preventDefault();
       $currentShip = $(this)
       shipName = $(this).html();
       console.log(shipName)
-      size = $(this).attr('href');
+      size = $(this).attr('value');
     });
 
     $('.cell').on("mouseenter", function() {
@@ -74,7 +75,7 @@ $(document).ready(function() {
     $allShips.addClass("ship-placed");
     $allShips.removeClass("ship-shadow")
     $currentShip.hide();
-    createShip(shipName, size, $mousePosition.html(), direction)
+    createShip(shipName, size, $mousePosition.html(), direction, board_id)
     size = null;
       });
     };
@@ -82,10 +83,10 @@ $(document).ready(function() {
   boardFunctionality();
 });
 
-var createShip = function(name, size, position, direction){
+var createShip = function(name, size, position, direction, board_id){
   $.ajax({
-    url: "/ships",
-    type: "POST",
+    url: "/boards/" + board_id +"/ships",
+    method: "POST",
     data: {name: name, size: size, position: position, direction: direction },
   })
   .done(function(response) {

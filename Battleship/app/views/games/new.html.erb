@@ -1,4 +1,4 @@
-<div id="grid">
+<div class="set-up" id="grid">
 <table style="text-align: center;">
   <tr>
     <th></th>
@@ -147,22 +147,24 @@
 </div>
 
 <div id="ships">
-<a href="2">Destroyer</a><br><br>
-<a href="3">Submarine</a><br><br>
-<a href="3">Cruiser</a><br><br>
-<a href="4">BattleShip</a><br><br>
-<a href="5">Carrier</a><br><br><br>
+<p class="ship" value="2">Destroyer</p><br><br>
+<p class="ship" value="3">Submarine</p><br><br>
+<p class="ship" value="3">Cruiser</p><br><br>
+<p class="ship" value="4">BattleShip</p><br><br>
+<p class="ship" value="5">Carrier</p><br><br><br>
 </div>
 
 <div id="toggle-button">
     <button>Rotate Ship</button>
 </div>
 
+<%= link_to "Create Battle", "games#create" %>
+
 
 
 <h1 id="warning"></h1>
-
-
+<h1><%=flash.alert%></h1>
+<h2 id="board-id" class="hidden"><%=@board.id%></h2>
 
 
 

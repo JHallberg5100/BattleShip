@@ -9,6 +9,14 @@
   </head>
 
   <body>
+      <%= link_to "Home", games_path %>
+    <% if logged_in? %>
+      <%= link_to "#{current_user.username}", user_path(current_user) %>
+      <%= link_to "Logout", "/sessions", method: :destroy %>
+    <% else %>
+      <%= link_to "Register", new_user_path %>
+      <%= link_to "Login", new_session_path %>
+    <% end %>
 
     <%= yield %>
   </body>
