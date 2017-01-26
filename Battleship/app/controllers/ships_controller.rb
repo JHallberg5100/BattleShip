@@ -1,4 +1,5 @@
 class ShipsController < ApplicationController
+  layout false
   include ShipsHelper
 
   def index

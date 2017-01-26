@@ -90,7 +90,10 @@ $(document).ready(function() {
       $(this).addClass("shot-shadow")
     });
     $("#shot-board .cell").on("click", function(){
-      $mousePosition = $(this);
+      event.preventDefault();
+      $mousePosition = event.target;
+      console.log(event.target);
+      console.log($(this))
       location= $mousePosition.html();
       console.log(location)
 
