@@ -146,25 +146,14 @@
 </table>
 </div>
 
-<div id="ships">
-<p class="ship" value="2">Destroyer</p><br><br>
-<p class="ship" value="3">Submarine</p><br><br>
-<p class="ship" value="3">Cruiser</p><br><br>
-<p class="ship" value="4">BattleShip</p><br><br>
-<p class="ship" value="5">Carrier</p><br><br><br>
-</div>
 
-<div id="toggle-button">
-    <button>Rotate Ship</button>
-</div>
-
-<%= link_to "Create Battle", "games#create" %>
+<%= link_to "Create Battle", @game %>
 
 
 
 <h1 id="warning"></h1>
 <h1><%=flash.alert%></h1>
-<h2 id="board-id" class="hidden"><%=@board.id%></h2>
+
 
 
 

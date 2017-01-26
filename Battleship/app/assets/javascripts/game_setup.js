@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
   var boardFunctionality = function(){
-    var board_id = $("#board-id").html()
-    var direction = "horizontal"
+    var board_id = $("#board-id").html();
+    var direction = "horizontal";
     $("#toggle-button").on("click", function(){
       if (direction === "horizontal"){
         direction = "vertical";
@@ -10,20 +10,20 @@ $(document).ready(function() {
       else{
         direction = "horizontal";
       }
-    })
+    });
 
     $('.ship').on("click", function(){
       event.preventDefault();
-      $currentShip = $(this)
+      $currentShip = $(this);
       shipName = $(this).html();
-      console.log(shipName)
+      console.log(shipName);
       size = $(this).attr('value');
     });
 
-    $('.cell').on("mouseenter", function() {
+    $('#grid .cell').on("mouseenter", function() {
       $("#warning").html("");
       $mousePosition = $(this);
-      $currentPosition = $mousePosition
+      $currentPosition = $mousePosition;
 
       $('.ship-shadow').removeClass("ship-shadow");
 
@@ -73,16 +73,30 @@ $(document).ready(function() {
   $(".cell").on("click", function(){
     $allShips= $(".ship-shadow");
     $allShips.addClass("ship-placed");
-    $allShips.removeClass("ship-shadow")
+    $allShips.removeClass("ship-shadow");
     $currentShip.hide();
-    createShip(shipName, size, $mousePosition.html(), direction, board_id)
+    createShip(shipName, size, $mousePosition.html(), direction, board_id);
     size = null;
       });
     };
 
   boardFunctionality();
-});
 
+  $("#ready-button").on("click", function(){
+    $('#shot-board .cell').on("mouseenter", function() {
+      $("#warning").html("");
+      $mousePosition = $(this);
+      $('.shot-shadow').removeClass("shot-shadow");
+      $(this).addClass("shot-shadow")
+    });
+    $("#shot-board .cell").on("click", function(){
+      $mousePosition = $(this);
+      location= $mousePosition.html();
+      console.log(location)
+
+    });
+  });
+});
 var createShip = function(name, size, position, direction, board_id){
   $.ajax({
     url: "/boards/" + board_id +"/ships",
@@ -91,7 +105,8 @@ var createShip = function(name, size, position, direction, board_id){
   })
   .done(function(response) {
     console.log(response);
-  })
+  });
 }
+
 
 

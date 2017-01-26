@@ -11,6 +11,8 @@ module ShipsHelper
   end
 
   def find_position_horizontal(position, size)
+    p "~~~~~~~~~~~~~~~~~~~~~~~"
+    p "I did a thing"
     position_letter = position.split('')[0]
     position_num = position.split('')[1]
     matched_letter_index = ALPHABET.index(position_letter)
@@ -23,9 +25,11 @@ module ShipsHelper
         letters_array << char + position_num
       end
     end
+    letters_array
   end
 
   def find_position_vertical(position, size)
+    size = size.to_i
     position_letter= position.split('')[0]
     position_num = position.split("")[1].to_i
     output_array = []

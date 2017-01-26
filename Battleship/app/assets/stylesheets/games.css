@@ -4,6 +4,11 @@
   width: 40px;
   border: #0089EB solid 2px;
 }
+#shot-board{
+  width: 80%;
+  margin-left: 35%;
+  margin-right: 35%;
+}
 
 #grid {
   width: 80%;
@@ -26,6 +31,16 @@ a {
 }
 .ship-placed{
   background-color: gray
+}
+
+.shot-shadow{
+  background-color:#e97451
+}
+.shot-hit{
+  background-color: red;
+}
+.shot-miss{
+
 }
 /*$('.cell').css('background-color', '#CCE9F8');
         $(this).css('background-color', 'gray');*/
