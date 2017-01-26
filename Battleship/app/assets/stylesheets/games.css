@@ -20,3 +20,12 @@ a {
   color: navy;
   text-decoration: none;
 }
+
+.ship-shadow{
+  background-color: #FF0080
+}
+.ship-placed{
+  background-color: gray
+}
+/*$('.cell').css('background-color', '#CCE9F8');
+        $(this).css('background-color', 'gray');*/
