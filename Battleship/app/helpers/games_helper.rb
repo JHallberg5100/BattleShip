@@ -28,3 +28,24 @@ end
     end
      false
   end
+
+
+  def parse_hits(board)
+    ship_array = board.ships
+    shot_array = board.shots.split(" ")
+    output_string = ""
+    ship_array.each do |ship|
+      ship_location = ship.location.split(" ")
+      ship_location.each do |square|
+        shot_array.each do |shot|
+          output_string += shot + " "
+          if shot == square
+            output_string += "hit" + " "
+          else
+            output_string += "miss" + " "
+          end
+        end
+      end
+      output_string
+    end
+  end
