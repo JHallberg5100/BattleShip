@@ -91,11 +91,15 @@ $(document).ready(function() {
     $("#shot-board .scell").on("click", function(event){
       event.preventDefault();
       var board_id = $("#board-id").html();
-      $mousePosition =$(this);
-      console.log(event.target);
-      console.log($(this))
-      location= $mousePosition.html();
-      putShot(board_id, location);
+      console.log("Hello");
+      $mousePosition = $(this);
+      console.log($mousePosition.html());
+      var this_location= $mousePosition.html();
+      console.log("Board id");
+      console.log(board_id);
+      console.log("Location");
+      console.log(this_location);
+      putShot(board_id, this_location);
     });
   // });
 });

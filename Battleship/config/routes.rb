@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "games#index"
 
 
-  put "/boards/:board_id/shot", to: "games#shots"
+  put "/boards/:board_id/shots", to: "games#shots"
   resources :games
   resources :users, only: [:new, :create, :show, :destroy]
   resources :sessions, only: [:new, :create, :destroy]

@@ -33,8 +33,13 @@ class GamesController < ApplicationController
   end
 
   def shots
-    @board = Board.find_by(id: params[:board_id])
-    @board.shots << shot
+    @board = Board.find_by(id: params[:board_id].to_i)
+    p "~~~~~~~"
+    p params
+    p params[:shot]
+    p @board.shots
+    p params[:board_id]
+    @board.shots += " " + params[:shot]
     ship_array = @board.ships
     shot = params[:shot]
     ship_array.each do |ship|
@@ -47,6 +52,8 @@ class GamesController < ApplicationController
     end
     return false
   end
+
+
   def destroy
   end
 end
