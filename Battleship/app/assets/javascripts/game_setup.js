@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-  (function)
 
   var boardFunctionality = function(){
     var board_id = $("#board-id").html();

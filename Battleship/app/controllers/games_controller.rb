@@ -35,12 +35,25 @@ class GamesController < ApplicationController
       render :json => { :file_content => "true"}
     else
       render :json => { :file_content => "false"}
-    # respond_to do |format|
-    #   format.html
-    #   format.js { data }
     end
   end
 
+  def update_game
+    @game = Game.find_by(params[:game_id])
+    @board = Board.find_by(params[:board_id])
+    @opponent_board = @game.boards.reject {|board| board.id == @board.id}
+    response = {}
+    response[:shots] = parse_hits(@opponent_board)
+    if response[:shots].count("hit") >= 17
+      response[:win_state] = "You win!"
+    end
+    response[:ships] = @board.ships.each {|ship| ship.location + " "}
+    response[:opponent_shots] = parse_hits(@board)
+    if response[:opponent_shots].count("hit") >= 17
+      response[:win_state] = "You lost! Aaargh."
+     end
+    render :json => response
+  end
 
   def destroy
   end
