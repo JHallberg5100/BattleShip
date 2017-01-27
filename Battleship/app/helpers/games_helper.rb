@@ -19,7 +19,7 @@ end
     ship_array = @board.ships
     shot = params[:shot]
     ship_array.each do |ship|
-      shot_array = ship.shots.split(' ')
+      shot_array = @board.shots.split(' ')
       shot_array.each do |ship_shot|
         if ship_shot == shot
            true
@@ -35,7 +35,7 @@ end
     shot_array = board.shots.split(" ")
     output_string = ""
     ship_array.each do |ship|
-      ship_location = ship.location.split(" ")
+      ship_location = ship.position.split(" ")
       ship_location.each do |square|
         shot_array.each do |shot|
           output_string += shot + " "

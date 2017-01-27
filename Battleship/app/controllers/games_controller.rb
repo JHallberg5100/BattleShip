@@ -39,15 +39,15 @@ class GamesController < ApplicationController
   end
 
   def update_game
-    @game = Game.find_by(params[:game_id])
-    @board = Board.find_by(params[:board_id])
-    @opponent_board = @game.boards.reject {|board| board.id == @board.id}
-    response = {}
-    response[:shots] = parse_hits(@opponent_board)
-    if response[:shots].count("hit") >= 17
-      response[:win_state] = "You win!"
-    end
-    response[:ships] = @board.ships.each {|ship| ship.location + " "}
+    @game = Game.find(params[:game_id])
+    @board = Board.find_by(player_id: current_user.id, game_id: params[:game_id])
+    # @opponent_board = @game.boards.reject {|board| board.id == @board.id}
+    # response = {}
+    # response[:shots] = parse_hits(@opponent_board)
+    # if response[:shots].count("hit") >= 17
+    #   response[:win_state] = "You win!"
+    # end
+    response[:ships] = @board.ships.each {|ship| ship.position + " "}
     response[:opponent_shots] = parse_hits(@board)
     if response[:opponent_shots].count("hit") >= 17
       response[:win_state] = "You lost! Aaargh."
