@@ -21,10 +21,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @games = @user.hosted_games + @user.joined_games
   end
 
   private
   def users_params
-    params.require(user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password)
   end
 end

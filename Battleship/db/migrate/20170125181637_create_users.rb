@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :username
       t.string :email
       t.string :password_digest
-      t.integer :wins
+      t.integer :wins, :default => 0
       t.integer :games_played
 
       t.timestamps
