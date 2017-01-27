@@ -1,0 +1,15 @@
+<h1> Welcome <%= @user.username.capitalize %></h1>
+<ul>
+<li> You're currently rank <%= user_ranking(@user) %> out of <%= total_users %> </li>
+<li> You've played <%= @user.games_played %> games </li>
+<li> You've hosted <%= @user.hosted_games.length %> games </li>
+<li> You've joined <%= @user.joined_games.length %> games </li>
+<li> You've won <%= @user.wins %> games </li>
+<li> You've lost <%= @user.games_lost %> games, Scallywag!</li>
+</ul>
+
+<ol>
+  <%@games.each do |game|%>
+  <li><a href="/games/<%=game.id%>"><%=game.player1.username%> vs. <%=game.player2.username%></a></li>
+  <% end%>
+</ol>
