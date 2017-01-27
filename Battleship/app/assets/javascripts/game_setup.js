@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  (function)
+
   var boardFunctionality = function(){
     var board_id = $("#board-id").html();
     var direction = "horizontal";
@@ -91,15 +93,9 @@ $(document).ready(function() {
     $("#shot-board .scell").on("click", function(event){
       event.preventDefault();
       var board_id = $("#board-id").html();
-      console.log("Hello");
       $mousePosition = $(this);
-      console.log($mousePosition.html());
       var this_location= $mousePosition.html();
-      console.log("Board id");
-      console.log(board_id);
-      console.log("Location");
-      console.log(this_location);
-      putShot(board_id, this_location);
+      putShot(board_id, this_location, $mousePosition);
     });
   // });
 });
@@ -110,18 +106,26 @@ var createShip = function(name, size, position, direction, board_id){
     data: {name: name, size: size, position: position, direction: direction },
   })
   .done(function(response) {
-    console.log(response);
+    // console.log(response);
   });
 }
 
-var putShot = function(board_id, shot){
+var putShot = function(board_id, shot, $mousePosition){
+  var response = ""
   $.ajax({
     url: "/boards/" + board_id + "/shots",
     method: "PUT",
     data: {board_id: board_id, shot: shot}
   })
   .done(function(response){
-    console.log(response);
+    // console.log(response.file_content)
+    if(response === "true"){
+      $mousePosition.addClass("shot-hit");
+    }
+    else{
+      console.log($mousePosition);
+      $mousePosition.addClass("shot-miss");
+    }
   });
   }
 

@@ -17,14 +17,11 @@ class GamesController < ApplicationController
   def new
     @game = Game.new({player1_id:  current_user.id,
                      player2_id: current_user.id})
-    p "!" * 100
-    p @game
 
     if @game.save
       @board = Board.new({player_id:  current_user.id,
                           game_id: @game.id})
       @board.save
-      p @board
 
     else
       flash[:alert] = @game.errors.full_messages
@@ -34,23 +31,14 @@ class GamesController < ApplicationController
 
   def shots
     @board = Board.find_by(id: params[:board_id].to_i)
-    p "~~~~~~~"
-    p params
-    p params[:shot]
-    p @board.shots
-    p params[:board_id]
-    @board.shots += " " + params[:shot]
-    ship_array = @board.ships
-    shot = params[:shot]
-    ship_array.each do |ship|
-      shot_array = ship.shots.split(' ')
-      shot_array.each do |ship_shot|
-        if ship_shot == shot
-          return true
-        end
-      end
+    if shots_helper(params)
+      render :json => { :file_content => "true"}
+    else
+      render :json => { :file_content => "false"}
+    # respond_to do |format|
+    #   format.html
+    #   format.js { data }
     end
-    return false
   end
 
 
