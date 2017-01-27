@@ -17,20 +17,30 @@ class GamesController < ApplicationController
   def new
     @game = Game.new({player1_id:  current_user.id,
                      player2_id: current_user.id})
-    p "!" * 100
-    p @game
 
     if @game.save
       @board = Board.new({player_id:  current_user.id,
                           game_id: @game.id})
       @board.save
-      p @board
 
     else
       flash[:alert] = @game.errors.full_messages
       render 'new'
     end
   end
+
+  def shots
+    @board = Board.find_by(id: params[:board_id].to_i)
+    if shots_helper(params)
+      render :json => { :file_content => "true"}
+    else
+      render :json => { :file_content => "false"}
+    # respond_to do |format|
+    #   format.html
+    #   format.js { data }
+    end
+  end
+
 
   def destroy
   end

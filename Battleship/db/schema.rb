@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20170125181929) do
   create_table "boards", force: :cascade do |t|
     t.integer  "player_id"
     t.integer  "game_id"
-    t.string   "shots"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "shots",      default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "games", force: :cascade do |t|

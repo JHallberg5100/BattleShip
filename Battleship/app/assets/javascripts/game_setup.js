@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  (function)
+
   var boardFunctionality = function(){
     var board_id = $("#board-id").html();
     var direction = "horizontal";
@@ -81,24 +83,21 @@ $(document).ready(function() {
     };
 
   boardFunctionality();
-
-  $("#ready-button").on("click", function(){
-    $('#shot-board .cell').on("mouseenter", function() {
+  // $("#ready-button").on("click", function(){
+    $('#shot-board .scell').on("mouseenter", function() {
       $("#warning").html("");
       $mousePosition = $(this);
       $('.shot-shadow').removeClass("shot-shadow");
       $(this).addClass("shot-shadow")
     });
-    $("#shot-board .cell").on("click", function(){
+    $("#shot-board .scell").on("click", function(event){
       event.preventDefault();
-      $mousePosition = event.target;
-      console.log(event.target);
-      console.log($(this))
-      location= $mousePosition.html();
-      console.log(location)
-
+      var board_id = $("#board-id").html();
+      $mousePosition = $(this);
+      var this_location= $mousePosition.html();
+      putShot(board_id, this_location, $mousePosition);
     });
-  });
+  // });
 });
 var createShip = function(name, size, position, direction, board_id){
   $.ajax({
@@ -107,9 +106,28 @@ var createShip = function(name, size, position, direction, board_id){
     data: {name: name, size: size, position: position, direction: direction },
   })
   .done(function(response) {
-    console.log(response);
+    // console.log(response);
   });
 }
+
+var putShot = function(board_id, shot, $mousePosition){
+  var response = ""
+  $.ajax({
+    url: "/boards/" + board_id + "/shots",
+    method: "PUT",
+    data: {board_id: board_id, shot: shot}
+  })
+  .done(function(response){
+    // console.log(response.file_content)
+    if(response === "true"){
+      $mousePosition.addClass("shot-hit");
+    }
+    else{
+      console.log($mousePosition);
+      $mousePosition.addClass("shot-miss");
+    }
+  });
+  }
 
 
 
