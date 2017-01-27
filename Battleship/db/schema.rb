@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(version: 20170125181929) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "wins"
+    t.integer  "wins",            default: 0
     t.integer  "games_played"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end
