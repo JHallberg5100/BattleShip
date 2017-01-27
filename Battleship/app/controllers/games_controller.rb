@@ -32,6 +32,21 @@ class GamesController < ApplicationController
     end
   end
 
+  def shots
+    @board = Board.find_by(id: params[:board_id])
+    @board.shots << shot
+    ship_array = @board.ships
+    shot = params[:shot]
+    ship_array.each do |ship|
+      shot_array = ship.shots.split(' ')
+      shot_array.each do |ship_shot|
+        if ship_shot == shot
+          return true
+        end
+      end
+    end
+    return false
+  end
   def destroy
   end
 end

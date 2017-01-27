@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'ships/index'
-
-  get 'ships/create'
-
   root "games#index"
 
+
+  put "/boards/:board_id/shot", to: "games#shots"
   resources :games
   resources :users, only: [:new, :create, :show, :destroy]
   resources :sessions, only: [:new, :create, :destroy]

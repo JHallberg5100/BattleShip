@@ -81,24 +81,23 @@ $(document).ready(function() {
     };
 
   boardFunctionality();
-
-  $("#ready-button").on("click", function(){
-    $('#shot-board .cell').on("mouseenter", function() {
+  // $("#ready-button").on("click", function(){
+    $('#shot-board .scell').on("mouseenter", function() {
       $("#warning").html("");
       $mousePosition = $(this);
       $('.shot-shadow').removeClass("shot-shadow");
       $(this).addClass("shot-shadow")
     });
-    $("#shot-board .cell").on("click", function(){
+    $("#shot-board .scell").on("click", function(event){
       event.preventDefault();
-      $mousePosition = event.target;
+      var board_id = $("#board-id").html();
+      $mousePosition =$(this);
       console.log(event.target);
       console.log($(this))
       location= $mousePosition.html();
-      console.log(location)
-
+      putShot(board_id, location);
     });
-  });
+  // });
 });
 var createShip = function(name, size, position, direction, board_id){
   $.ajax({
@@ -110,6 +109,17 @@ var createShip = function(name, size, position, direction, board_id){
     console.log(response);
   });
 }
+
+var putShot = function(board_id, shot){
+  $.ajax({
+    url: "/boards/" + board_id + "/shots",
+    method: "PUT",
+    data: {board_id: board_id, shot: shot}
+  })
+  .done(function(response){
+    console.log(response);
+  });
+  }
 
 
 
